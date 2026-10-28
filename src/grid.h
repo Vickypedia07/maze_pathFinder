@@ -21,11 +21,11 @@ public :
         return cols_;
     }
 
-    bool inBound(Pos p) const;
+    bool inBounds(Pos p) const;
     bool isWall(Pos p) const;
     void setWall(Pos p, bool wall); 
 
-    static Grid fromStrings(std::vector<std::string>& lines);
+    static Grid fromStrings(const std::vector<std::string>& lines);
 
     Pos start , goal;
 

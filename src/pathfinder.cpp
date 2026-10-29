@@ -16,6 +16,7 @@ namespace {
         int cur = g.goal.r*cols+g.goal.c;
         while(cur != -1){
             path.push_back({cur/cols, cur%cols});
+            if(cur == startId) break;
             cur = parent[cur];
         }
         std::reverse(path.begin(), path.end());

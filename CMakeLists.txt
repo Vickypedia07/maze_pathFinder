@@ -7,7 +7,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 add_compile_options(-Wall -Wextra)
 
-add_library(pathlib src/grid.cpp )
+add_library(pathlib src/grid.cpp src/pathfinder.cpp src/maze.cpp)
 target_include_directories(pathlib PUBLIC src)
 
 add_executable(pathfinder src/main.cpp)

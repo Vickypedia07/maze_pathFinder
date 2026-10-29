@@ -14,10 +14,10 @@ enum class Cell : char {Open , Wall};
 class Grid{
 public :
     Grid(int rows, int cols);
-    int rows() {
+    int rows() const {
         return rows_;
     }
-    int cols() {
+    int cols() const {
         return cols_;
     }
 
@@ -30,6 +30,6 @@ public :
     Pos start , goal;
 
 private:
-    int rows_, cols_;
+    int rows_ , cols_;
     std::vector<Cell> cells_;
 };

@@ -17,7 +17,7 @@ const int STEPS_PER_FRAME = 3;
 
 enum class Phase {Idle , Exploring , DrawingPath};
 
-sf::Color colorFor(Grid& g, Pos p , char mark){
+sf::Color colorFor(const Grid& g, Pos p , char mark){
     if(p==g.start) return sf::Color(46,204,113);
     if(p==g.goal) return sf::Color(231,76,60);
     if(g.isWall(p)) return sf::Color(44,62,80);
@@ -106,7 +106,7 @@ void runVisualizer(Grid& gr , unsigned seed){
         for(int r=0 ; r<gr.rows() ; ++r){
             for(int c=0 ; c<gr.cols() ; ++c){
                 cell.setPosition({static_cast<float>(c*CELL),static_cast<float>(r*CELL)});
-                cell.setFillColor(colorFor(gr,Pos{r,c},mark[r*gr.rows()+c]));
+                cell.setFillColor(colorFor(gr,Pos{r,c},mark[r*gr.cols()+c]));
                 window.draw(cell);
             }
         }

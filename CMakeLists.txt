@@ -10,8 +10,10 @@ add_compile_options(-Wall -Wextra)
 add_library(pathlib src/grid.cpp src/pathfinder.cpp src/maze.cpp)
 target_include_directories(pathlib PUBLIC src)
 
-add_executable(pathfinder src/main.cpp)
-target_link_libraries(pathfinder PRIVATE pathlib)
+find_package(SFML 3 COMPONENTS Graphics REQUIRED)
+
+add_executable(pathfinder src/main.cpp src/renderer.cpp)
+target_link_libraries(pathfinder PRIVATE pathlib SFML::Graphics)
 
 include(FetchContent)
 FetchContent_Declare(Catch2 GIT_REPOSITORY https://github.com/catchorg/Catch2.git GIT_TAG v3.5.2)

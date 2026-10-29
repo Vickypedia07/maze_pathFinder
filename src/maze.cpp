@@ -45,7 +45,7 @@ void generateMaze(Grid& g, unsigned seed){
 
 void addLoops(Grid& g , unsigned seed , double fraction){
     std::mt19937 rng(seed);
-    std::uniform_int_distribution dist(0.0,1.0);
+    std::uniform_real_distribution<double> dist(0.0 , 1.0);
     for(int r = 1 ; r<g.rows()-1 ; ++r){
         for(int c = 1 ; c<g.cols()-1 ; ++c){
             if(g.isWall({r,c}) && dist(rng) < fraction) g.setWall({r,c} , false);
